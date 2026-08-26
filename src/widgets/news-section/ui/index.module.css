@@ -1,0 +1,8 @@
+.title {
+  @mixin h1;
+  @mixin responsive padding-block-end, 30, 40;
+}
+
+.categories {
+  @mixin responsive padding-block-end, 20, 30;
+}

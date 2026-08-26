@@ -1,0 +1,175 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: 100%;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+dialog {
+  border: unset;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+a,
+[role='button'] {
+  /* 1. Убирает синюю/серую подсветку при нажатии на iOS и Android (Chrome/Safari) */
+  -webkit-tap-highlight-color: transparent;
+
+  /* 2. Отключает стандартное контекстное меню при долгом нажатии (iOS/Android) */
+  -webkit-touch-callout: none;
+
+  /* 3. Отключает выделение текста при двойном тапе */
+  -webkit-user-select: none;
+  user-select: none;
+
+  /* 4. Убирает стандартные стили кнопок в iOS (Safari накладывает свои градиенты и скругления) */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* 5. Убираем пунктирную рамку фокуса в Firefox (если актуально) */
+button::-moz-focus-inner {
+  border: 0;
+}

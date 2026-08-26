@@ -1,0 +1,15 @@
+@define-mixin responsive $property, $mobile-size, $desktop-size {
+  $(property): calc($(desktop-size)rem / $big-desktop-scale-factor);
+
+	@media (max-width: $small-desktop) {
+		$(property): calc($(desktop-size)rem / $standard-desktop-scale-factor);
+	}
+
+	@media (max-width: $mobile) {
+		$(property): calc($(mobile-size)rem / $mobile-scale-factor);
+	}
+
+	@media (min-width: $small-desktop) {
+		$(property): calc($(desktop-size)rem / $big-desktop-scale-factor);
+	}
+}

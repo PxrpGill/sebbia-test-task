@@ -1,0 +1,33 @@
+:root {
+  /* ── Neutral ── */
+  --color-white-1: #ffffff;
+  --color-white-2: #f8f9fa;
+  --color-white-3: #f1f3f5;
+
+  --color-gray-1: #e9ecef;
+  --color-gray-2: #dee2e6;
+  --color-gray-3: #ced4da;
+  --color-gray-4: #adb5bd;
+  --color-gray-5: #868e96;
+  --color-gray-6: #495057;
+  --color-gray-7: #343a40;
+
+  --color-black-1: #212529;
+
+  /* ── Accent (cool blue) ── */
+  --color-accent-1: #e7f5ff;
+  --color-accent-2: #d0ebff;
+  --color-accent-3: #4dabf7;
+  --color-accent-4: #339af0;
+  --color-accent-5: #228be6;
+  --color-accent-6: #1c7ed6;
+  --color-accent-7: #1971c2;
+
+  /* ── Semantic ── */
+  --color-success: #40c057;
+  --color-warning: #fab005;
+  --color-danger: #fa5252;
+
+  /* ── Utility ── */
+  --move-in-screen: cubic-bezier(0.4, 0, 0.2, 1);
+}

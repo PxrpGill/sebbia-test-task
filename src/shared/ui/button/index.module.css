@@ -1,0 +1,25 @@
+.root {
+  @mixin responsive padding-inline, 20, 25;
+  @mixin responsive padding-block, 10, 20;
+  @mixin responsive border-radius, 10, 15;
+  @mixin text-md;
+  @mixin transitionOptions;
+  @mixin responsive --border, 1, 1;
+
+  border: var(--border) solid var(--color-black-1);
+  transition-property: background-color, translate;
+  line-height: 1;
+  background-color: var(--color-gray-7);
+  color: var(--color-white-1);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-gray-6);
+      translate: 0 -5%;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    @mixin text-xl;
+  }
+}

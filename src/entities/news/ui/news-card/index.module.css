@@ -1,0 +1,43 @@
+.root {
+  @mixin responsive padding-inline, 20, 60;
+  @mixin responsive padding-block, 30, 40;
+  @mixin responsive border-radius, 30, 30;
+  @mixin transitionOptions;
+
+  transition-property: background-color, translate, box-shadow;
+  background-color: var(--color-gray-3);
+  position: relative;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-gray-2);
+      translate: 0 -2%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.327);
+    }
+  }
+}
+
+.title {
+  @mixin responsive padding-block-end, 10, 10;
+  @mixin text-2xl;
+}
+
+.shortDescription {
+  @mixin text-md;
+  @mixin responsive padding-block-end, 30, 30;
+}
+
+.date {
+  @mixin text-base;
+
+  font-weight: 600;
+}
+
+.link {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,27 @@
+.list {
+  @mixin responsive row-gap, 20, 30;
+  @mixin responsive column-gap, 0, 60;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.newsCard[class] {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.loading,
+.empty {
+  @mixin h3;
+  @mixin responsive padding-block-start, 30, 30;
+
+  text-align: center;
+}

@@ -1,0 +1,40 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+  font-size: 1vw;
+  scrollbar-gutter: stable;
+  /* scroll-behavior: smooth; */
+
+  @media (width >= 1441px) {
+    font-size: 14.41px;
+  }
+
+  background-color: var(--color-white-1);
+  color: var(--color-black-1);
+}
+
+main {
+  min-height: 100vh;
+
+  @media (max-width: $mobile) {
+    min-height: unset;
+  }
+}
+
+.container {
+  @mixin responsive padding-inline, 20, 40;
+
+  @media (max-width: $mobile) {
+    width: 100%;
+    margin-inline: unset;
+  }
+
+  @media (width >= 1441px) {
+    padding-inline: calc(2em + (100vw - 1440px) / 2);
+  }
+}

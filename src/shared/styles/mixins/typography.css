@@ -1,0 +1,126 @@
+@define-mixin text-xs {
+  @mixin responsive font-size, 12, 12;
+
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+@define-mixin text-sm {
+  @mixin responsive font-size, 14, 14;
+
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+@define-mixin text-base {
+  @mixin responsive font-size, 14, 16;
+
+  line-height: 1.56;
+  font-weight: 400;
+}
+
+@define-mixin text-md {
+  @mixin responsive font-size, 13, 18;
+
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+@define-mixin text-lg {
+  @mixin responsive font-size, 16, 22;
+
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+@define-mixin text-xl {
+  @mixin responsive font-size, 16, 24;
+
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+@define-mixin text-2xl {
+  @mixin responsive font-size, 20, 26;
+
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+@define-mixin text-3xl {
+  @mixin responsive font-size, 24, 32;
+
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+@define-mixin text-4xl {
+  @mixin responsive font-size, 22, 36;
+
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+@define-mixin text-5xl {
+  @mixin responsive font-size, 20, 40;
+
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+@define-mixin text-6xl {
+  @mixin responsive font-size, 26, 48;
+
+  line-height: 1;
+  font-weight: 600;
+}
+
+@define-mixin text-7xl {
+  @mixin responsive font-size, 64, 64;
+
+  line-height: 0.96;
+  font-weight: 600;
+}
+
+/* ─── h1–h6 / b1–b4 aliases (backward-compatible) ───────────────────────── */
+
+@define-mixin h1 {
+  @mixin text-7xl;
+}
+@define-mixin h2 {
+  @mixin text-6xl;
+}
+@define-mixin h3 {
+  @mixin text-5xl;
+}
+@define-mixin h4 {
+  @mixin text-4xl;
+}
+@define-mixin h5 {
+  @mixin text-xl;
+}
+@define-mixin h6 {
+  @mixin text-2xl;
+}
+
+@define-mixin b1 {
+  @mixin text-md;
+}
+@define-mixin b2 {
+  @mixin text-base;
+}
+@define-mixin b3 {
+  @mixin text-sm;
+}
+@define-mixin b4 {
+  @mixin text-xs;
+}
+
+/* ─── button (no text-* equivalent — 15px constant) ─────────────────────── */
+
+@define-mixin button {
+  @mixin responsive font-size, 15, 15;
+
+  line-height: 1.5;
+  font-weight: 600;
+}

@@ -1,0 +1,52 @@
+.root {
+  @mixin responsive padding-block, 88, 100;
+
+  &.loading {
+    @mixin h2;
+
+    text-align: center;
+  }
+}
+
+.article {
+  max-width: 800px;
+}
+
+.title {
+  @mixin h1;
+  @mixin responsive padding-block-end, 20, 30;
+
+  @media (max-width: $mobile) {
+    @mixin h3;
+  }
+}
+
+.date {
+  @mixin text-base;
+  display: block;
+  @mixin responsive padding-block-end, 30, 40;
+}
+
+.content {
+  @mixin text-lg;
+
+  a {
+    @mixin transition color;
+
+    text-decoration: underline;
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-warning);
+      }
+    }
+  }
+
+  b {
+    font-weight: 600;
+  }
+
+  i {
+    font-style: italic;
+  }
+}
