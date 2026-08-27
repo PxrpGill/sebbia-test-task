@@ -1,22 +1,9 @@
-import { useParams } from 'react-router-dom';
-
-import { useGetNewsDetails } from '@entities/news';
+import { GetNewsDetailResponse } from '@entities/news/types/news-detail.types';
 import { formatDate } from '@shared/lib';
 
 import css from './index.module.css';
 
-export const NewsDetailPage = () => {
-  const { id } = useParams<{ id: string }>();
-  const { data, isLoading } = useGetNewsDetails(id ? Number(id) : null);
-
-  if (isLoading) {
-    return (
-      <main className={`${css.root} container ${isLoading && css.loading}`}>Загружаем контент</main>
-    );
-  }
-
-  const news = data?.news;
-
+export const NewsDetailPage = ({ news }: GetNewsDetailResponse) => {
   return (
     <main className={`${css.root} container`}>
       {news && (

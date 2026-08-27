@@ -1,14 +1,15 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
 
 import type { PropsWithClassName } from '@shared/types/props-with-classname.types';
-import { Button, Loader } from '@shared/ui';
+import { Button } from '@shared/ui';
 
-import { useGetNewsCategories } from '../hooks/use-get-news-categories';
-import { NEWS_CATEGORIES_LOADERS_COUNT } from '../models/news-categories.constants';
+import { GetNewsCategoriesRequestType } from '../types/news-categories.types';
 import css from './index.module.css';
 
-export const NewsCategories = ({ className }: PropsWithClassName) => {
-  const { data, isLoading } = useGetNewsCategories();
+export const NewsCategories = ({
+  className,
+  list,
+}: PropsWithClassName & Omit<GetNewsCategoriesRequestType, 'code'>) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentCategory = searchParams.get('categoryId');
 
@@ -18,20 +19,15 @@ export const NewsCategories = ({ className }: PropsWithClassName) => {
 
   return (
     <div className={`${css.root} ${className}`}>
-      {isLoading &&
-        Array.from({ length: NEWS_CATEGORIES_LOADERS_COUNT }).map((_, index) => (
-          <Loader className={css.loader} key={index} />
-        ))}
-      {data &&
-        data?.list?.map((category, index) => (
-          <Button
-            key={index}
-            onClick={() => handleButtonClick(category.id)}
-            className={`${css.button} ${category.id === Number(currentCategory) && css.active}`}
-          >
-            {category.name}
-          </Button>
-        ))}
+      {list?.map((category, index) => (
+        <Button
+          key={index}
+          onClick={() => handleButtonClick(category.id)}
+          className={`${css.button} ${category.id === Number(currentCategory) && css.active}`}
+        >
+          {category.name}
+        </Button>
+      ))}
     </div>
   );
 };

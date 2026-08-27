@@ -1,0 +1,1 @@
+var e=e=>{let t=typeof e==`string`?new Date(e):e;return new Intl.DateTimeFormat(`ru-RU`).format(t)};export{e as t};

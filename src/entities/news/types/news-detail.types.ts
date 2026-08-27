@@ -7,6 +7,6 @@ export type NewsDetailType = {
 };
 
 export type GetNewsDetailResponse = {
-  code: number;
+  code?: number;
   news: NewsDetailType;
 };

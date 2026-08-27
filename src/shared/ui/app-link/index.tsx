@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Link, type LinkProps } from 'react-router-dom';
+import { Link, type LinkProps } from 'react-router';
 
 type AppLinkProps = LinkProps & PropsWithChildren;
 

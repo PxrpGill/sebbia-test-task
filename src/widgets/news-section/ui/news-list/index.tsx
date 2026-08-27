@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
 
 import { NewsCard } from '@entities/news';
 import { AppLink } from '@shared/ui';
