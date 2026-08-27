@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Sebbia Test Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для просмотра новостей, выполненное в рамках тестового задания.
 
-Currently, two official plugins are available:
+## Стек технологий
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **React Router v8** (SSR)
+- **TanStack React Query** — управление серверным состоянием
+- **Axios** — HTTP-запросы
+- **Vite** — сборка и dev-сервер
+- **PostCSS** — обработка стилей (nested, mixins, simple-vars)
 
-## React Compiler
+## Архитектура
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Проект построен по принципам **Feature-Sliced Design (FSD)**:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```
+src/
+├── app/          # Конфигурация приложения, роутинг
+├── entities/     # Бизнес-сущности (news)
+├── features/     # Интерактивные фичи (news-categories)
+├── widgets/      # Составные блоки UI (news-section)
+├── pages/        # Страницы (home-page, news-detail-page)
+└── shared/       # Общие ресурсы
+    ├── api/      # API-клиент и эндпоинты
+    ├── config/   # Конфигурация
+    ├── lib/      # Утилиты
+    ├── styles/   # Глобальные стили
+    ├── types/    # Типы
+    └── ui/       # Переиспользуемые UI-компоненты
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Маршруты
 
-```js
-// eslint.config.js
-import reactDom from 'eslint-plugin-react-dom';
-import reactX from 'eslint-plugin-react-x';
+| Путь | Страница |
+|------|----------|
+| `/` | Главная страница со списком новостей |
+| `/news/:id` | Детальная страница новости |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+## API
+
+Приложение работает с следующими эндпоинтами:
+
+| Метод | URL | Описание |
+|-------|-----|----------|
+| GET | `/news/categories` | Список категорий новостей |
+| GET | `/news/categories/:id/news` | Новости по категории |
+| GET | `/news/details` | Детали новости |
+
+Базовый URL API задаётся через переменную окружения `VITE_API_URL` (по умолчанию `/api`).
+
+## Переменные окружения
+
+Скопируйте `.env.example` в `.env` и заполните:
+
+```bash
+VITE_API_URL=<URL вашего API>
 ```
+
+## Установка и запуск
+
+```bash
+# Установка зависимостей
+pnpm install
+
+# Development
+pnpm dev
+
+# Сборка
+pnpm build
+
+# Запуск продакшн-версии
+pnpm start
+
+# Линтинг
+pnpm lint
+
+# Форматирование
+pnpm format
+```
+
+## Структура алиасов
+
+| Алиас | Путь |
+|-------|------|
+| `@pages` | `/src/pages` |
+| `@widgets` | `/src/widgets` |
+| `@features` | `/src/features` |
+| `@entities` | `/src/entities` |
+| `@shared` | `/src/shared` |
