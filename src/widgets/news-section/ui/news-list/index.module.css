@@ -25,3 +25,10 @@
 
   text-align: center;
 }
+
+.showMoreButton {
+  @mixin responsive margin-block-start, 20, 30;
+
+  margin-inline: auto;
+  display: block;
+}
