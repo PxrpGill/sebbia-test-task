@@ -7,7 +7,7 @@ export const useGetNewsByCategory = (categoryId: string | null) => {
     queryKey: ['news', categoryId],
     queryFn: ({ pageParam = 0 }) => getNewsByCategory(categoryId!, pageParam),
     getNextPageParam: (lastPage, allPages) => {
-      if (!lastPage.list || lastPage.list.length === 0) {
+      if (!lastPage.list || lastPage.list.length < 10) {
         return undefined;
       }
       return allPages.length;
